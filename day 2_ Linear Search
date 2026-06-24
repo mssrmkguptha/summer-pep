@@ -1,0 +1,17 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int> v = {7, -1, 2,4,3};
+    int t=7;
+    int i=0;
+    while(i< v.size()){
+        if (v[i] == t){
+            cout <<i;
+            return 0;
+        }
+        i++;
+    }
+    cout<<"not found";
+    return 0;
+}
