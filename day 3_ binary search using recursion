@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int bs(vector<int> v, int target, int s, int e)
+{
+    if(s > e)
+        return -1;
+
+    int mid = (s + e) / 2;
+
+    if(v[mid] == target)
+        return mid;
+
+    int left = bs(v, target, s, mid - 1);
+    int right = bs(v, target, mid + 1, e);
+
+    if(left != -1)
+        return left;
+
+    return right;
+}
+
+int main()
+{
+    vector<int> v = {5, 6, 7, 8, 9};
+    int target = 8;
+
+    cout << bs(v, target, 0, v.size() - 1);
+
+    return 0;
+}
