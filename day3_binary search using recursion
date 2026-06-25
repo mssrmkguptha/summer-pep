@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int bs(vector<int>& v, int target, int s, int e)
+{
+    if (s > e)
+        return -1;
+
+    int mid = s + (e - s) / 2;
+
+    if (v[mid] == target)
+        return mid;
+
+    if (target < v[mid])
+        return bs(v, target, s, mid - 1);
+
+    return bs(v, target, mid + 1, e);
+}
+
+int main()
+{
+    vector<int> v = {1, 3, 5, 7, 9, 11};
+    int target = 7;
+
+    int result = bs(v, target, 0, v.size() - 1);
+
+    if (result != -1)
+        cout << "Element found at index " << result;
+    else
+        cout << "Element not found";
+
+    return 0;
+}
