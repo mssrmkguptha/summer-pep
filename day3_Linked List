@@ -1,0 +1,25 @@
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int val) {
+        data = val;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    void printList(Node* head) {
+       if(head == NULL){
+           return;
+           
+       }
+       cout << head->data << " ";
+       printList(head->next);
+        
+    }
+};
