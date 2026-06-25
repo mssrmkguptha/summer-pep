@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int digit(int n)
+{
+    int count = 0;
+    while(n > 0)
+    {
+        count++;
+        n /=10;
+    }
+    return count;
+}
+
+bool check(int n){
+    int sum =0;
+    int d = digit(n);
+    int num = n;
+    while(num>0){
+        int a = num%10;
+        sum+= pow(a,d);
+        num /= 10;
+    }
+    if(sum ==n) return 1;
+    else return 0;
+}
+int main() {
+    cout<<check(153);
+}
