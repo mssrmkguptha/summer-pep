@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    Node* removeLastNode(Node* head) {
+        if(head->next == NULL) {
+            delete head;
+            return NULL;
+        }
+        if(head->next->next == NULL) {
+            delete head->next;
+            head->next = NULL;
+            return head;
+        }
+        head->next = removeLastNode(head->next);
+        return head;
+    }
+};
