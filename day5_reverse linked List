@@ -1,0 +1,17 @@
+class Solution {
+  public:
+    Node* reverseList(Node* head) {
+        if(head==NULL or head->next==NULL) return head;
+        
+        Node * res= revereseList(head->next);
+        
+        Node* temp=head->next;
+        
+        temp->next=head;
+        
+        
+        head->next=NULL;
+        
+        return res;
+    }
+};
