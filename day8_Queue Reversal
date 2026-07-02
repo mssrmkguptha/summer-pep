@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    void reverseQueue(queue<int> &q) {
+        // code here
+    stack<int>st;
+    
+    while(!q.empty()){
+        
+        int f=q.front();
+        q.pop();
+        
+        st.push(f);
+    }
+    
+    while(!st.empty()){
+        
+        int t=st.top();
+        st.pop();
+        q.push(t);
+    }
+    
+    }
+};
