@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    void sortStack(stack<int> &st) {
+         stack<int> temp;
+             while(!st.empty()){
+                     int x=st.top();
+           st.pop();
+                  while(!temp.empty() and temp.top()>x){
+               st.push(temp.top());
+               temp.pop();
+           }
+                   temp.push(x);
+      
+       }
+            st.swap(temp);
+
+    }
+};
