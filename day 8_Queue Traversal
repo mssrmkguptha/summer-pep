@@ -1,0 +1,11 @@
+class Solution {
+  public:
+    vector<int> queueTraversal(queue<int>& q) {
+        vector<int> a;
+        while (!q.empty()) {
+            a.push_back(q.front());
+            q.pop();
+        }
+        return a;
+    }
+};
