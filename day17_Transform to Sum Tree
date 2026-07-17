@@ -1,0 +1,17 @@
+class Solution {
+  public:
+        int helper(Node* &root){
+        if(!root) return 0;
+        int val=root->data;
+       int l= helper(root->left);
+       int r= helper(root->right);
+        root->data=l+r;
+        return val+root->data;
+    }
+  
+    void toSumTree(Node *root) {
+          int h=helper(root);
+        return ;
+    }
+
+};
