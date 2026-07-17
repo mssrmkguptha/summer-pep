@@ -1,0 +1,11 @@
+class Solution {
+  public:
+    int minValue(Node* root) {
+        if(!root) return -1;
+        
+        int x=minValue(root->left);
+        if(x==-1) return root->data;
+        
+        return min(x,root->data);
+    }
+};
