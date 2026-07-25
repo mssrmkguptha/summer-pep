@@ -1,0 +1,23 @@
+class Solution {
+public:
+int dx[4]={1,-1,0,0};
+   int dy[4]={0,0,1,-1};
+   int original;
+   void dfs(vector<vector<int>>& image,int i, int j,int m,int n, int col){
+       if(i<0 or j<0 or i>=m or j>=n or image[i][j]!=original or image[i][j]==col) return;
+      
+       image[i][j]=col;
+      for(int itr=0;itr<4;itr++){
+       dfs(image,i+dx[itr],j+dy[itr],m,n,col);
+      }
+   }
+
+
+   vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+       int m=image.size();
+       int n=image[0].size();
+       original=image[sr][sc];
+       dfs(image,sr,sc,m,n,color);
+       return image;
+   }
+};
