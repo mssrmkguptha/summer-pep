@@ -1,0 +1,42 @@
+class Solution {
+  public:
+    vector<bool> vis, path;
+
+    bool dfs(vector<vector<int>> &adj, int node) {
+        vis[node] = true;
+        path[node] = true;
+
+        for (int nbr : adj[node]) {
+            if (!vis[nbr]) {
+                if (dfs(adj, nbr))
+                    return true;
+            }
+            else if (path[nbr]) {
+                return true;
+            }
+        }
+
+        path[node] = false;
+        retu-rn false;
+    }
+
+    bool isCyclic(int V, vector<vector<int>> &edges) {
+
+        vector<vector<int>> adj(V);
+
+        for (auto &e : edges)
+            adj[e[0]].push_back(e[1]);
+
+        vis.assign(V, false);
+        path.assign(V, false);
+
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
+                if (dfs(adj, i))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+};
